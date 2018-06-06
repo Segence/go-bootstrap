@@ -8,10 +8,12 @@ The functionality of this bootstrap project is strictly made for demonstration p
 
 Make sure the [GB build tool](https://getgb.io) is installed.
 
-Steps:
+Build steps:
 
 - `gb vendor restore`
 - `gb build`
+
+To run unit tests, use: `gb test`
 
 ## Running
 
