@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	"my-organization/utils"
+	"my-organization/my-app/utils"
 
 	logging "github.com/hhkbp2/go-logging"
 )

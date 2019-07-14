@@ -45,6 +45,7 @@ go mod init ${ORGANISATION_NAME}/${APPLICATION_NAME}
 
 sed -i '' 's/my-app/'${APPLICATION_NAME}'/g' ./README.md
 sed -i '' 's/my-app/'${APPLICATION_NAME}'/g' ./.gitignore
-sed -i '' 's/my-organization/'${APPLICATION_NAME}'/g' ./main.go
+sed -i '' 's/my-app/'${APPLICATION_NAME}'/g' ./main.go
+sed -i '' 's/my-organization/'${ORGANISATION_NAME}'/g' ./main.go
 
 echo "${FONT_BOLD}Project ${APPLICATION_NAME} successfully created.${FONT_NC}"

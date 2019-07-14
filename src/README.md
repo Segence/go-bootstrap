@@ -1,23 +1,17 @@
 Go project bootstrap
 ====================
 
-A sample [Go](https://golang.org) bootstrap project using the project layout of the [GB](https://getgb.io) build tool.
-The functionality of this bootstrap project is strictly made for demonstration purposes only and to provide a baseline application set up.
+A sample [Go](https://golang.org) bootstrap project.
 
 ## Building the project
 
-Make sure the [GB build tool](https://getgb.io) is installed.
+Make sure the Go 1.11 (or later) is installed.
 
-Build steps:
-
-- `gb vendor restore`
-- `gb build`
-
-To run unit tests, use: `gb test`
+The `Makefile` contains all neccessary goals for build steps.
 
 ## Running
 
-Simply run the application using the built executable and the mandatory parameter: `./bin/my-app --input-string=First,Second,Third`
+Simply run the application using the built executable and the mandatory parameter: `./my-app --input-string=First,Second,Third`
 
 The application then prints the following output:
 
