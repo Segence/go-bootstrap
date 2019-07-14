@@ -4,19 +4,13 @@
 		{
 			"importpath": "github.com/hhkbp2/go-logging",
 			"repository": "https://github.com/hhkbp2/go-logging",
-			"revision": "377ba05d98977baa2a0d9e13f13aac2f3a47ac4d",
+			"revision": "65fcbf8cf388a708c9c36def03633ec62056d3f5",
 			"branch": "master"
 		},
 		{
 			"importpath": "github.com/hhkbp2/go-strftime",
 			"repository": "https://github.com/hhkbp2/go-strftime",
 			"revision": "d82166ec6782f870431668391c2e321069632fe7",
-			"branch": "master"
-		},
-		{
-			"importpath": "gopkg.in/yaml.v2",
-			"repository": "https://gopkg.in/yaml.v2",
-			"revision": "5420a8b6744d3b0345ab293f6fcba19c978f1183",
 			"branch": "master"
 		}
 	]
