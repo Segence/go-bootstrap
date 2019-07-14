@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	app "my-organization/my-app"
+	"my-organization/utils"
 
 	logging "github.com/hhkbp2/go-logging"
 )
@@ -29,7 +29,7 @@ func main() {
 
 	logger.Infof("Received inputString: %s", *inputString)
 
-	for _, inputStringPart := range app.SplitStringParameter(*inputString, ParameterValueSeparatorCharacter) {
+	for _, inputStringPart := range utils.SplitStringParameter(*inputString, ParameterValueSeparatorCharacter) {
 		logger.Infof("Parsed input value: %s", inputStringPart)
 	}
 }

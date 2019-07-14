@@ -1,4 +1,1 @@
-bin/
-pkg/
-vendor/*
-!vendor/manifest
+my-app
