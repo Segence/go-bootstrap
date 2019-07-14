@@ -13,6 +13,11 @@ build:
 test:
 	@go test -v ./...
 
+.PHONY: build-docker # Build Docker image
+build-docker:
+	@CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main
+	@docker build -t my-organization/my-app:latest -f Dockerfile .
+
 .PHONY: help # Generate list of goals with descriptions
 help:
 	@echo "Available goals:\n"
