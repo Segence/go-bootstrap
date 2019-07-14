@@ -5,6 +5,10 @@ FONT_NC := ${FONT_ESC}[0m # No colour
 all:
 	@echo "Use a specific goal. To list all goals, type 'make help'"
 
+.PHONY: version # Prints project version
+version:
+	@cat VERSION
+
 .PHONY: build # Builds the project
 build:
 	@go build
@@ -16,7 +20,8 @@ test:
 .PHONY: build-docker # Build Docker image
 build-docker:
 	@CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main
-	@docker build -t my-organization/my-app:latest -f Dockerfile .
+	@docker build -t my-organization/my-app:$(shell $(MAKE) version) -f Dockerfile .
+	@docker tag my-organization/my-app:$(shell $(MAKE) version) my-organization/my-app:latest
 
 .PHONY: help # Generate list of goals with descriptions
 help:
