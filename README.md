@@ -8,5 +8,5 @@ The project relies on [Go Modules](https://github.com/golang/go/wiki/Modules) so
 To bootstrap the project, simple run:
 
 ```
-sh -c "$(curl -sSL https://raw.githubusercontent.com/Segence/go-gb-bootstrap/master/bootstrap.sh)"
+sh -c "$(curl -sSL https://raw.githubusercontent.com/Segence/go-bootstrap/master/bootstrap.sh)"
 ```
