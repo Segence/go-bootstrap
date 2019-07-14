@@ -6,7 +6,7 @@ all:
 	@echo "Use a specific goal. To list all goals, type 'make help'"
 
 .PHONY: build # Builds the project
-test:
+build:
 	@go build
 
 .PHONY: test # Runs unit tests

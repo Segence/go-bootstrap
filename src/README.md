@@ -5,9 +5,9 @@ A sample [Go](https://golang.org) bootstrap project.
 
 ## Building the project
 
-Make sure the Go 1.11 (or later) is installed.
-
 The `Makefile` contains all neccessary goals for build steps.
+
+Simply type in `make help` to list all available goals.
 
 ## Running
 
