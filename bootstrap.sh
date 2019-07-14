@@ -32,8 +32,6 @@ if [[ -z "${APPLICATION_NAME}" ]]; then
     exit 1
 fi
 
-go mod init ${ORGANISATION_NAME}/${APPLICATION_NAME}
-
 echo "${FONT_BOLD}Downloading bootstrap files (using version ${BOOTSTRAP_PROJECT_VERSION})...${FONT_NC}"
 curl -sL ${BOOTSTRAP_PROJECT_ARCHIVE_URL} | tar zx
 
@@ -41,8 +39,12 @@ echo "${FONT_BOLD}Renaming directories...${FONT_NC}"
 mv ${BOOTSTRAP_PROJECT_ARCHIVE_DIRNAME}/src ${APPLICATION_NAME}
 rm -rf ${BOOTSTRAP_PROJECT_ARCHIVE_DIRNAME}
 
-sed -i '' 's/my-app/'${APPLICATION_NAME}'/g' ${APPLICATION_NAME}/README.md
-sed -i '' 's/my-app/'${APPLICATION_NAME}'/g' ${APPLICATION_NAME}/.gitignore
-sed -i '' 's/my-organization/'${APPLICATION_NAME}'/g' ${APPLICATION_NAME}/main.go
+cd ${APPLICATION_NAME}
+
+go mod init ${ORGANISATION_NAME}/${APPLICATION_NAME}
+
+sed -i '' 's/my-app/'${APPLICATION_NAME}'/g' ./README.md
+sed -i '' 's/my-app/'${APPLICATION_NAME}'/g' ./.gitignore
+sed -i '' 's/my-organization/'${APPLICATION_NAME}'/g' ./main.go
 
 echo "${FONT_BOLD}Project ${APPLICATION_NAME} successfully created.${FONT_NC}"
