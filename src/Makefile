@@ -19,7 +19,6 @@ test:
 
 .PHONY: build-docker # Build Docker image
 build-docker:
-	@CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main
 	@docker build -t my-organization/my-app:$(shell $(MAKE) version) -f Dockerfile .
 	@docker tag my-organization/my-app:$(shell $(MAKE) version) my-organization/my-app:latest
 
