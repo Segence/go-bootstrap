@@ -19,6 +19,15 @@ FONT_BOLD=${FONT_ESC}[1m
 FONT_RED="${FONT_ESC}[0;31m"
 FONT_NC=${FONT_ESC}[0m # No colour
 
+# Functions
+
+function stringRegexValidation {
+    if [[ ! "${1}" =~ ^[a-z0-9-]+$ ]]; then
+        echo "${FONT_RED}${2} name should only contain lowercase letters, numbers and hyphens${FONT_NC}"
+        exit 2
+    fi
+}
+
 # Questions
 read -p 'Organisation name: ' ORGANISATION_NAME
 if [[ -z "${ORGANISATION_NAME}" ]]; then
@@ -26,11 +35,15 @@ if [[ -z "${ORGANISATION_NAME}" ]]; then
     exit 1
 fi
 
+stringRegexValidation "${ORGANISATION_NAME}" 'Organization'
+
 read -p 'Application name: ' APPLICATION_NAME
 if [[ -z "${APPLICATION_NAME}" ]]; then
     echo "${FONT_RED}Application name has to be defined${FONT_NC}"
     exit 1
 fi
+
+stringRegexValidation "${APPLICATION_NAME}" 'Application'
 
 echo "${FONT_BOLD}Downloading bootstrap files (using version ${BOOTSTRAP_PROJECT_VERSION})...${FONT_NC}"
 curl -sL ${BOOTSTRAP_PROJECT_ARCHIVE_URL} | tar zx
