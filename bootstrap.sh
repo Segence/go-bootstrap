@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -e
+
 # Main configuration
 
 BOOTSTRAP_PROJECT_NAME=go-bootstrap
@@ -28,22 +30,21 @@ function stringRegexValidation {
     fi
 }
 
+function inputStringValidation {
+    if [[ -z "${1}" ]]; then
+        echo "${FONT_RED}${2} name has to be defined${FONT_NC}"
+        exit 1
+    fi
+
+    stringRegexValidation "${1}" "${2}"
+}
+
 # Questions
 read -p 'Organisation name: ' ORGANISATION_NAME
-if [[ -z "${ORGANISATION_NAME}" ]]; then
-    echo "${FONT_RED}Organisation name has to be defined${FONT_NC}"
-    exit 1
-fi
-
-stringRegexValidation "${ORGANISATION_NAME}" 'Organization'
+inputStringValidation "${ORGANISATION_NAME}" 'Organization'
 
 read -p 'Application name: ' APPLICATION_NAME
-if [[ -z "${APPLICATION_NAME}" ]]; then
-    echo "${FONT_RED}Application name has to be defined${FONT_NC}"
-    exit 1
-fi
-
-stringRegexValidation "${APPLICATION_NAME}" 'Application'
+inputStringValidation "${APPLICATION_NAME}" 'Application'
 
 echo "${FONT_BOLD}Downloading bootstrap files (using version ${BOOTSTRAP_PROJECT_VERSION})...${FONT_NC}"
 curl -sL ${BOOTSTRAP_PROJECT_ARCHIVE_URL} | tar zx
