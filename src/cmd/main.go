@@ -1,16 +1,16 @@
 package cmd
 
 import (
-	"flag"
 	"my-organization/my-app/pkg"
 
 	logging "github.com/hhkbp2/go-logging"
+	"github.com/namsral/flag"
 )
 
 const applicationName = "my-app"
 
-const loggingFormat := "%(asctime)s %(levelname)s (%(filename)s:%(lineno)d) %(name)s %(message)s"
-const loggingDateFormat := "%Y-%m-%d %H:%M:%S.%3n"
+const loggingFormat = "%(asctime)s %(levelname)s (%(filename)s:%(lineno)d) %(name)s %(message)s"
+const loggingDateFormat = "%Y-%m-%d %H:%M:%S.%3n"
 
 const parameterValueSeparatorCharacter = ","
 
@@ -31,8 +31,8 @@ func main() {
 	logger.SetLevel(logging.LevelInfo)
 	logger.AddHandler(handler)
 
-    logger.Infof("Application configuration:")
-        logger.Infof("    %s: %s", inputStringParameterName, *inputString)
+	logger.Infof("Application configuration:")
+	logger.Infof("    %s: %s", inputStringParameterName, *inputString)
 
 	for _, inputStringPart := range pkg.SplitStringParameter(*inputString, parameterValueSeparatorCharacter) {
 		logger.Infof("Parsed input value: %s", inputStringPart)
