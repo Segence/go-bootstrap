@@ -2,8 +2,8 @@
 # Building executable binary
 ############################
 
-# golang:1.12.7-alpine
-FROM golang@sha256:1121c345b1489bb5e8a9a65b612c8fed53c175ce72ac1c76cf12bbfc35211310 as builder
+# golang:1.14.1-alpine3.11
+FROM golang@sha256:0b69b5d47b70b9905cde03b9094d1b17178a7655faa0b2ce6b8b744b1abca8ba as builder
 
 # Install git + SSL ca certificates:
 # - Git is required for fetching the dependencies
