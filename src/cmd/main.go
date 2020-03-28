@@ -20,7 +20,8 @@ var (
 	inputString = flag.String(inputStringParameterName, "", "A sample input string. (Required)")
 )
 
-func main() {
+// Main application entrypoint
+func Main() {
 
 	flag.Parse()
 
